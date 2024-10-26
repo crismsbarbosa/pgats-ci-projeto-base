@@ -1,1 +1,34 @@
+# CI de nivel 01 - Disparo a partir de um clique
 
+# Nome que vai aparecer la nas opcoes de pipe
+name: 'Execucao manual'
+
+# Triggers ou gatilho manual
+    # gatilho de exec manual - workflow_dispatch
+
+on:
+    workflow_dispatch:
+
+jobs:
+    # descricao dos jobs
+    e2e-tests: 
+
+        # maquina que o job vai executar
+        runs-on: ['ubuntu-latest']
+
+        # passo a passo das acoes do job
+        steps: 
+        
+            - uses: acions/checkout@v4
+
+            - name: Instalando Yarn
+              run: npm install -g yarn
+
+            - name: Instalando dependências
+              run: yarn
+
+            - name: Instalando Playwright
+              run: npm playwright install
+
+            - name: Testes E2E (endo-to-end)
+              run: yarn run e2e
