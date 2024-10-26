@@ -19,7 +19,7 @@ jobs:
         # passo a passo das acoes do job
         steps: 
         
-            - uses: acions/checkout@v4
+            - uses: actions/checkout@v4
 
             - name: Instalando Yarn
               run: npm install -g yarn
@@ -28,7 +28,7 @@ jobs:
               run: yarn
 
             - name: Instalando Playwright
-              run: npm playwright install
+              run: yarn playwright install
 
-            - name: Testes E2E (endo-to-end)
+            - name: Testes E2E (end-to-end)
               run: yarn run e2e
